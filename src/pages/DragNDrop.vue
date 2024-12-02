@@ -69,7 +69,7 @@
             <q-td
               colspan="100%"
               style="border-bottom: 1px solid rgba(0, 0, 0, 0.12)"
-              >Example non draggable row
+              >Example non draggable row `{{ element.name }}`
             </q-td>
           </q-tr>
         </template>
