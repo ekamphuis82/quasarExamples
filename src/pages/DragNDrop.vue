@@ -100,10 +100,10 @@ const columns = ref([
 ]);
 
 const data = ref([
-  { id: 1, sortOrder: 0, name: 'Name 1', description: 'Description name 1' },
-  { id: 2, sortOrder: 1, name: 'Name 2', description: 'Description name 2' },
-  { id: 3, sortOrder: 2, name: 'Name 3', description: 'Description name 3' },
-  { id: 4, sortOrder: 4, name: 'Name 4', description: 'Description name 4' },
+  { id: 1, sortOrder: 0, name: 'Name 1', description: 'Description name 1', rowExpand: false },
+  { id: 2, sortOrder: 1, name: 'Name 2', description: 'Description name 2', rowExpand: false },
+  { id: 3, sortOrder: 2, name: 'Name 3', description: 'Description name 3', rowExpand: false },
+  { id: 4, sortOrder: 4, name: 'Name 4', description: 'Description name 4', rowExpand: false },
 ]); // initial db value could be 2147483647 (Integer.MAX_VALUE)
 
 const [dragDropBody, dragDropItems] = useDragAndDrop(data.value, {
