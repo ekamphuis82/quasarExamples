@@ -1,7 +1,10 @@
 <template>
   <div class="q-pa-md">
-    <div class="text-h6 q-mb-md">
-      Drag 'n Drop implementation inside q-markup-table
+    <div class="q-mb-md">
+      <div class="text-h6">Drag 'n Drop implementation inside q-markup-table</div>
+      <div>
+        Based on <a target="_blank" href="https://drag-and-drop.formkit.com/">https://drag-and-drop.formkit.com/</a>
+      </div>
     </div>
     <q-markup-table>
       <thead>
