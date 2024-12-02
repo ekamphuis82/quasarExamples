@@ -1,9 +1,14 @@
 <template>
   <div class="q-pa-md">
     <div class="q-mb-md">
-      <div class="text-h6">Drag 'n Drop implementation inside q-markup-table</div>
+      <div class="text-h6">
+        Drag 'n Drop implementation inside q-markup-table
+      </div>
       <div>
-        Based on <a target="_blank" href="https://drag-and-drop.formkit.com/">https://drag-and-drop.formkit.com/</a>
+        Based on
+        <a target="_blank" href="https://drag-and-drop.formkit.com/"
+          >https://drag-and-drop.formkit.com/</a
+        >
       </div>
     </div>
     <q-markup-table>
@@ -45,12 +50,25 @@
                 <q-input v-model="scope.value" dense autofocus type="text" />
               </q-popup-edit>
             </q-td>
-            <q-td>{{ element.description }}</q-td>
+            <q-td>
+              {{ element.description }}
+              <q-btn
+                flat
+                class="q-ml-xs"
+                size="xs"
+                color="black"
+                @click="expandMarkupTableRow(element)"
+                :icon="
+                  element.rowExpand ? 'fa fa-chevron-up' : 'fa fa-chevron-down'
+                "
+                v-if="editable === true"
+              />
+            </q-td>
           </q-tr>
           <q-tr :draggable="false" class="no-drag" v-show="element.rowExpand">
             <q-td
               colspan="100%"
-              style="padding: 0; border-bottom: 1px solid rgba(0, 0, 0, 0.12)"
+              style="border-bottom: 1px solid rgba(0, 0, 0, 0.12)"
               >Example non draggable row
             </q-td>
           </q-tr>
@@ -124,6 +142,16 @@ const addRow = () => {
   quasar.notify({
     type: 'positive',
     message: 'Add a new row',
+  });
+};
+
+const expandMarkupTableRow = (el, reOpen = false) => {
+  data.value.forEach((item) => {
+    if (item.id !== el.id) {
+      item.rowExpand = false;
+    } else {
+      item.rowExpand = reOpen === true ? true : !el.rowExpand;
+    }
   });
 };
 </script>
