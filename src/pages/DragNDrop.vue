@@ -1,8 +1,9 @@
 <template>
   <div class="q-pt-md" :class="{ 'q-px-md' : !insideDialog }">
-    <div class="q-mb-md" v-if="!insideDialog">
-      <div class="text-h6">
-        Drag 'n Drop implementation inside q-markup-table <q-btn color="primary" class="q-ml-sm" label="Inside dialog" @click="openDragDropDialog" outline />
+    <div class="q-mb-md dragDropHead" v-if="!insideDialog">
+      <div class="text-h6 dragDropHead__header">
+        <span>Drag 'n Drop implementation inside q-markup-table</span>
+        <q-btn color="primary" label="Inside dialog" @click="openDragDropDialog" outline />
       </div>
       <div>
         Based on
@@ -206,6 +207,14 @@ const openDragDropDialog = () => dragDropDialog.value.show()
 </script>
 
 <style scoped lang="sass">
+.dragDropHead
+  display: flex
+  flex-flow: column wrap
+  gap: 1rem
+.dragDropHead__header
+  display: flex
+  flex-flow: row wrap
+  gap: .5rem 1rem
 .dragDrop__handleContainer
   text-align: center
 .dragDrop__handle
